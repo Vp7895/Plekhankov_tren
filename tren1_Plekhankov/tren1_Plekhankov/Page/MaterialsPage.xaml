@@ -1,0 +1,50 @@
+﻿<Window x:Class="tren1_Plekhankov.Page.MaterialsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tren1_Plekhankov.Page"
+        mc:Ignorable="d"
+        Title="Материалы" Height="450" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Resources/icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#FEA9AB">
+            <TextBlock Text="Материалы" Style="{StaticResource zag}"/>
+            <Image Source="/Resources/logo.png" Style="{StaticResource img}"/>
+            <Button Name="BackBtn" Content="Вернуться Назад" Style="{StaticResource btn}" HorizontalAlignment="Right" Click="BackBtn_Click"/>
+        </Grid>
+
+        <DataGrid Grid.Row="1" Name="DGridMaterials" AutoGenerateColumns="False" IsReadOnly="True" FontFamily="Segoe Print">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding name}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Тип" Width="*" Binding="{Binding type_materials}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Количество в упаковке" Width="*" Binding="{Binding kolvo_v_ypakovke}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Ед.изм" Width="*" Binding="{Binding ed_izm}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Кол-во на складе" Width="*" Binding="{Binding kolvo_na_sklade}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding opisanie}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Фото" Width="*" Binding="{Binding images}" FontFamily="Segoe Print"/>
+                <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding price}" FontFamily="Segoe Print"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Style="{StaticResource btn}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Grid Grid.Row="2" Background="#EAB14D">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Добавить" Style="{StaticResource btn}" Background="#FEA9AB"/>
+                <Button Content="Удалить" Style="{StaticResource btn}" Background="#FEA9AB"/>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Window>
